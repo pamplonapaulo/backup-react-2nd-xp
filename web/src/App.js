@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-// import Header from './Header';
+import React from 'react';
+
+import './global.css';
 
 function App() {
 
-  const [counter, setCounter] = useState(0);
-
-  function incrementCounter() {
-    setCounter(counter + 1);
-  }
-
   return (
-    <>
-      <h1>Contador: {counter}</h1>
-      <button onClick={incrementCounter}>Incrementar</button>
-    </>
+    <div id="app">
+      <aside></aside>
+      <main></main>
+    </div>
   );
 }
 
