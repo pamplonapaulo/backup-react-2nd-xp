@@ -1,9 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const http = require('http');
 const routes = require('./routes');
+const { setupWebsocket} = require('./websocket');
 
 const app = express();
+const server = http.Server(app);
+
+setupWebsocket(server);
 
 mongoose.connect('mongodb+srv://omnistack:omnistack@omnistack-week-6sybr.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -14,4 +19,4 @@ app.use(cors({ origin: 'http://localhost:3000' }));// without parameters would m
 app.use(express.json()); // 'use' works for all kind of routes + have to be before call them.
 app.use(routes);
 
-app.listen(3333);
+server.listen(3333);
