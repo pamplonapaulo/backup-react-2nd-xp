@@ -1,0 +1,243 @@
+(dev) $ mkdir backend
+(dev) $ cd backend
+(dev) $ yarn init -y (creates package.json)
+(dev) $ yarn add express (creates Express dependency)
+
+file 'yarn.lock' is like a cache.
+
+Rotas:
+
+(dev) $ touch index.js
+
+(dev) $ node index.js
+
+(dev) $ yarn add nodemon -D
+
+(dev) $ yarn nodemon index.js
+
+Installation of Insomnia.rest
+
+(dev) $ yarn add mongoose
+
+// HTTP Methods: get, post, put, delete
+
+// Parameter's types:
+    // query params: reqest.query
+            // (Filtros, ORdenação, Paginação...)
+    // route params: request.params
+            // (Identificar um recurso na alteração ou remoção)
+    // body: request.body
+            // (Dados para criação ou alteração de um registro)
+
+(dev) $ yarn add axios (it helps you to consume other APIs)
+
+React / Frontend:
+
+(dev) $ yarn create react-app <new folder name>
+
+starts:
+(dev) $ cd <folder name>
+(dev) $ yarn start
+
+React:
+
+    Componente (bloco isolado de html, css e js o qual não interfere no restante da aplicação)
+    
+    Propriedade (informações que um componente pai passa para componentes filhos. like 'title=""')
+
+    Estado (Informações mantidas pelo componente. Ler sobre imutabilidade)
+
+Back to backend:
+
+    (dev) $ yarn add cors
+
+CORS (Cross Origin Resource Sharing)
+
+Back to frontend (web):
+
+    (dev) $ yarn add axios
+
+
+React Native (2015)
+
+ABORDAGEM TRADICIONAL: 2 desenvolvimentos
+
+    Apple Store (Objective-C ou Swift) => .ipa
+
+    Google Store (Java ou Kotlin) => .apk
+
+The application package files in iOS are called .ipa files. IPA stands for "iOS App Store Package". Each .ipa file includes a binary for the ARM architecture and can only be installed on an iOS-device. ... Unlike .apk files .ipa files cannot be simply installed on an iOS device.
+
+
+ABORDAGEM REACT NATIVE: 1 desenvolvimento
+
+    Todo o código feito é em JavaScript: JavaScript Core
+
+Esse código não é convertido em código nativo. O JS Core é compreendido pelos dois sistemas operacionais. A interface gerada é totalmente nativa, a mesma se fosse gerada pela abordagem tradicional.
+
+Sobre o 'Expo' Framework
+
+Framework para React Native. Sua lib engloba: api de câmera, api de mapa, api de geolocalização, api de sensores, etc. Sem o Expo, precisaríamos instalar em nosso sistema tanto o Android Studio para obter a SDK de desenvolvimento Android, e o Xcode (apenas para Mac) para obter a SDK do iOS. Nesse caso, nossa iniciação do desenvolvimento fica mais penosa, já que essas SDKs não são extremamente simples de instalar e livre de erros. Mas existem limitações no Expo: bluetooth, por exemplo. Para configurar estas SDKs mesmo assim, ver tutoriais abertos da Rocketseat.
+
+Instalação do Expo no computador:
+
+    (dev) $ yarn global add expo-cli
+
+    ou via NPM:
+
+    (dev) $ npm install -g expo-cli
+
+Checar versão do Expo:
+
+    (dev) $ expo --version
+
+Configuração necessária no Mac:
+
+    https://yarnpkg.com/lang/en/docs/cli/global/
+
+    Copy this line:
+
+        export PATH="$(yarn global bin):$PATH"
+
+    On the Terminal, go to user's root:
+
+        (dev) $ cd ~
+
+    Then edit:
+    
+        vim .bash_profile (running Vim)
+
+        or
+
+        code .bash_profile (running VS Code)
+
+    Paste this line:
+
+        export PATH="$(yarn global bin):$PATH"
+
+    Save and exit.
+
+
+    Starting your React Native project:
+
+        (dev) $ expo init <new project-folder name>
+
+            ex: expo init mobile
+
+        (dev) $ cd mobile
+
+        (dev) $ yarn start
+
+Read me:
+https://github.com/Rocketseat/expo-common-issues
+
+Notes:
+
+React Native não tem tag semântica no HTML.
+
+Atributos da tag não incluem 'class' e 'id'.
+
+O stylo via json não permite heranças como no css normal.
+
+https://docs.expo.io/versions/v36.0.0/guides/routing-and-navigation/
+
+https://github.com/react-navigation/react-navigation
+
+https://reactnavigation.org/docs/en/getting-started.html (Install into an existing project)
+
+Dentro de 'mobile':
+
+    /mobile (dev) $ yarn add react-navigation
+
+    /mobile (dev) $ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context
+
+    /mobile (dev) $ yarn add @react-native-community/masked-view
+
+https://reactnavigation.org/docs/en/hello-react-navigation.html
+
+    /mobile (dev) $ yarn add react-navigation-stack
+
+import { StyleSheet, Text, View } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Paulo Pamplona</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#7159c1',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  title: {
+    fontWeight: 'bold',
+    fontSize: 32,
+    color: '#FFF'
+  },
+
+
+});
+
+
+
+
+    /mobile (dev) $ expo install react-native-maps
+
+    /mobile (dev) $ expo install expo-location
+
+    /mobile (dev) $ expo install react-native-webview
+
+
+    Formulário de busca:
+
+    E procure sempre encapsular mais de uma tag entre fragment tags (<>,  </>)
+
+    /mobile (dev) $ yarn add axios (for api calls)
+
+    src/services/api.js:
+
+        const api = axios.create({
+            baseURL: 'HERE IS THE IP ADDRESS FROM YOUR EXPO-CLI CONNECTED ON YOUR MOBILE'
+        })
+
+        MAS EM VEZ DE:
+
+            exp://192.168.0.13:19000
+
+        USAR: 
+
+            baseURL: 'http://192.168.0.13:3333' (3333 é a porta usada pela nossa API do Node)
+
+FIM da penúltima aula.
+
+ÚLTIMA AULA:
+
+    Backend:
+
+        /backend (dev) $ yarn add socket.io
+
+    WebSocket Protocol: Send response from back to front without request from the front.
+
+    Now add this at the mobile folder:
+
+        /mobile (dev) $ yarn add socket.io-client
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
